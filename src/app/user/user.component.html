@@ -1,0 +1,49 @@
+<div class="card root text-white"
+  style="background:#9966; position: fixed; top: 50%; left:50%; transform: translate(-50%, -50%);">
+  <div class="card-header">
+    <h1 class="card-title" style="text-align:center">Search Flights</h1>
+  </div>
+
+  <form #searchform="ngForm" (ngSubmit)="searchflight()">
+    <div class="form-group">
+      <label for="from">From:</label>
+      <input type="text" class="form-control" placeholder="Enter Source" name="form" [(ngModel)]="search.flightFrom"
+        #from="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="to">To:</label>
+      <input type="text" class="form-control" placeholder="Enter Destination" name="to" [(ngModel)]="search.flightTo">
+    </div>
+    <div class="form-group">
+      <label for="date">To:</label>
+      <input type="date" class="form-control" name="date" [(ngModel)]="search.date">
+    </div>
+
+    <button [disabled]="searchform.form.invalid" type="submit" class="btn btn-info">Submit</button>
+  </form>
+  <!-- <table>
+   <thead>
+      <tr>
+        <th>Flight Id</th>
+        <th>Flight Name</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Date</th>
+        <th>Fare</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flight of flightlist">
+        <td>
+          {{flight.flightId}}
+          </td>
+          <td>{{flight.flightName}}</td>
+          <td> {{flight.from}}</td>
+         <td> {{flight.to}}</td>
+         <td>{{flight.date}}</td>
+          <td>{{flight.fare}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div> -->

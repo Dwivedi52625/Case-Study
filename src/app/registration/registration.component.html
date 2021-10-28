@@ -1,5 +1,7 @@
-<div class="container">
-    <h2 class="textual">User Registration</h2>
+<!-- <div class="card root text-white" style="background:#9966; position: fixed; top: 50%; left:50%; transform: translate(-50%, -50%);"> -->
+  <div class="card-header">
+    <h1 class="card-title" style="text-align:center">User Registration</h1>
+</div>
     <form #registrationform="ngForm" (ngSubmit)="registerUser()">
       <!-- {{loginform.form.valid}} -->
       <!-- <small [class.text-danger]="msg==500">{{msg}}</small> -->
@@ -33,6 +35,7 @@
         <button [disabled]="registrationform.form.invalid" type="submit" class="btn btn-info">Register</button>
       </form>
       <!-- <small class="float-right" (click)="gotoregistration()">New user ? Register here</small> -->
-      <small class="float-right btextual" [routerLink]="['/login']">Existing user ? Login here</small>
-</div>
+      <!-- <small class="float-right btextual" [routerLink]="['/login']">Existing user ? Login here</small> -->
+<!-- </div> -->
+
 

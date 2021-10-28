@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Travel Website</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="./homepage.component.html" /> -->
+  </head>
+  <body>
+    <header>
+      <div>
+        <i class="fas fa-plane"></i>
+        <p>Travel</p>
+      </div>
+      <nav>
+        <ul>
+            <li style="background: #000;"><a [routerLink]="['']">Home</a></li>
+          <li style="background: #000;"><a data-bs-toggle="modal" data-bs-target="#loginmodal">Login</a></li>
+          <li style="background: #000;"><a data-bs-toggle="modal" data-bs-target="#signupmodal">SignUp</a></li>
+          
+        </ul>
+      </nav>
+    </header>
+    <section class="titles">
+      <h1>Welcome to Indian Airways</h1>
+      <p>
+       Feel India's most comfortable and cost efficient journey
+      </p>
+    </section>
+    
+<div class="container" >
+    <div class="footer" style="
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: black;
+    text-align: center;">
+      <p>Copyright © 2021. CaseStudy </p>
+      <!-- <a href="https://m.facebook.com/" ><i class="fab fa-facebook"></i></a> -->
+    </div>
+  </div>
+ 
+<div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-login></app-login>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-registration></app-registration>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
