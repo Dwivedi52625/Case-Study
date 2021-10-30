@@ -18,8 +18,8 @@ msg='';
   registerUser(){
     this._service.registerUserFromRemote(this.user).subscribe(
       data =>{
-        console.log("response recieved");
-        this._router.navigate(['/login']);
+        alert("Registered Successfully Please Login")
+       
         this.msg= "registration success"
       },
       error =>{

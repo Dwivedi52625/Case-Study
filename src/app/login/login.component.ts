@@ -21,7 +21,7 @@ msg =''
     if(this._service.loginuserFromRemote(this.user)){
     this._service.loginuserFromRemote(this.user).subscribe(
       (data:User)=>{
-        console.log("signed in successfully");
+        alert("signed in successfully");
         this.user=data;
         this.redirect();
         

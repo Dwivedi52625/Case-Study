@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
 import { search } from '../search';
 
@@ -10,12 +11,15 @@ import { search } from '../search';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private _adminservice: AdminService, private formBuilder: FormBuilder) { }
+  constructor(private _adminservice: AdminService, private formBuilder: FormBuilder,private _router :Router) { }
   formvalue!: FormGroup
-  flights: search[] = [];
+  flights: search[] = []; //6 step
   flew:search=new search();
+  showAdd!:boolean;
+  showbtn!:boolean;
+
   ngOnInit(): void {
-    this.formvalue = this.formBuilder.group({
+    this.formvalue = this.formBuilder.group({ //1 step
       flightId: [''],
       flightName: [''],
       flightFrom: [''],
@@ -25,7 +29,12 @@ export class AdminComponent implements OnInit {
     })
    this.getallflights();
   }
-  addflights(){
+  clickAdd(){
+    this.formvalue.reset();
+    this.showAdd=true;
+    this.showbtn=false;
+  }
+  addflights(){ //2 step
    
     this.flew.flightId=this.formvalue.value.flightId;
     this.flew.flightName=this.formvalue.value.flightName;
@@ -34,7 +43,7 @@ export class AdminComponent implements OnInit {
     this.flew.date=this.formvalue.value.date;
     this.flew.fare=this.formvalue.value.fare;
 
-    this._adminservice.addflight(this.flew).subscribe(res=>{
+    this._adminservice.addflight(this.flew).subscribe(res=>{ //3 step
       console.log(res);
       alert("Flight Added Successfully");
       //clear fill form data
@@ -47,23 +56,26 @@ export class AdminComponent implements OnInit {
     err=>{
       alert("Flight Added Successfully")
     }
-    );
-    this.ngOnInit();
+    )
+    
   }
   getallflights(){
     this._adminservice.getallflight().subscribe(res => {
-      this.flights = res;
+      this.flights = res; // step 5
     });
   }
   deleteflight(flightId:any){
     this._adminservice.deleteflight(flightId).subscribe(res =>{
-      if(res=="flight deleted successfully")
+      
       alert("Flight deleted successfully");
       
+      this.getallflights();
     })
-    this.getallflights();
+   
   }
   onEditflight(flight:any){
+    this.showAdd=false;
+    this.showbtn=true;
     this.formvalue.controls['flightId'].setValue(flight.flightId);
     this.formvalue.controls['flightName'].setValue(flight.flightName);
     this.formvalue.controls['flightFrom'].setValue(flight.flightFrom);
@@ -82,7 +94,13 @@ export class AdminComponent implements OnInit {
 
     this._adminservice.updateflight(this.flew.flightId,this.flew,).subscribe(res=>
       {
-        alert("Flight updated successfully")
+        alert("Flight updated successfully");
+        let ref= document.getElementById('clear');
+      ref?.click();
+
+      this.formvalue.reset();
+      this.getallflights();
       })
+
   }
 }

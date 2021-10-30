@@ -1,7 +1,7 @@
-import { Search } from './search';
+import { search } from './search';
 
 describe('Search', () => {
   it('should create an instance', () => {
-    expect(new Search()).toBeTruthy();
+    expect(new search()).toBeTruthy();
   });
 });
