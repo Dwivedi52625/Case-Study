@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { FlightBookRequest } from '../flight-book-request';
 import { FlightsearchService } from '../flightsearch.service';
 import { search } from '../search';
@@ -37,7 +38,8 @@ flightbook = new FlightBookRequest();
       flightFrom: [''],
       flightTo: [''],
       date: [''],
-      fare: ['']
+      fare: [''],
+      flightsheet: ['']
 
     })
     //this.getallflights();
@@ -54,13 +56,15 @@ searchflight(){
   this.search.flightFrom=this.formvalue.value.flightFrom;
   this.search.flightTo=this.formvalue.value.flightTo;
   this.search.date=this.formvalue.value.date;
-
-
-
  this.searchservice.searchFlightFromRemote(this.search.flightFrom,this.search.flightTo,this.search.date).subscribe(res=>{
    this.flights=res;
    alert("Flight available")
- })
+ },
+ err=>{
+   alert("Flight Not Available")
+  }
+ )
+  
 }
 onEditflight(flight:any){
   
@@ -83,10 +87,12 @@ bookflight(){
     this.flightbook.lastname=this.form.value.lastname;
     this.flightbook.gender=this.form.value.gender;
     this.flightbook.age=this.form.value.age;
+    this.flightbook.flightsheet=this.form.value.flightsheet;
     sessionStorage.setItem('email',this.flightbook.email);
     this.searchservice.saveUserDetails(this.flightbook).subscribe(res=>{
     alert("Flight Booked Successfully");
     this._router.navigate(['/booking'])
+    window.location.reload();
     })
 }
 

@@ -25,7 +25,8 @@ msg =''
         this.user=data;
         this.redirect();
         
-      }
+      },
+      err=>{alert("Enter valid Email and Password")}
       )
   }
   else

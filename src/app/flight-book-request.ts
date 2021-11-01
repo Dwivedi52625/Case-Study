@@ -11,6 +11,7 @@ export class FlightBookRequest {
     flightFrom!: string;
     flightTo!: string;
     date!: string;
-    fare!:Number;
+    fare!:number;
+    flightsheet!:number;
     constructor(){}
 }

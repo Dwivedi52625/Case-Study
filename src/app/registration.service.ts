@@ -12,7 +12,7 @@ export class RegistrationService {
  //This is called as dependency injection
 
 //Here i am call rest api from java using httpclient
-  public loginuserFromRemote(user :User):Observable<any>{
+  public loginuserFromRemote(user :User):Observable<any>{  // Here httpclient is using observable to handle asynchronous service and responce
 return this._http.post<any>("http://localhost:8005/login",user)
   }
   public registerUserFromRemote(user :User):Observable<any>{

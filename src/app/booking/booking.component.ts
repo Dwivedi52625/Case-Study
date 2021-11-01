@@ -20,7 +20,7 @@ ticket: FlightBookRequest[]=[];
   }
   
   getUserTicket(){
-    this.email=sessionStorage.getItem('email')
+    this.email=sessionStorage.getItem('email')  //getting the value from session storage object using getItem
     this.searchservice.searchUserDetails(this.email).subscribe(res=>{
       this.ticket=res;
     console.log("Booked Ticket");

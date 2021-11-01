@@ -15,7 +15,7 @@ export class AdminService {
   public addflight(search:search):Observable<any> //4 step
   {
     return this._http.post<any>("http://localhost:8001/addflight",search)
-  }
+  } 
   public deleteflight(flightId:any)
   {
     return this._http.delete<any>("http://localhost:8001/del/"+flightId)

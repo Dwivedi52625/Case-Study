@@ -1,10 +1,11 @@
 
 <!-- <div class="card root text-white" style="background:#9966; position: fixed; top: 50%; left:50%; transform: translate(-50%, -50%);"> -->
+
   <div class="card-header">
     <h1 class="card-title" style="text-align: center">Login</h1>
   </div>
 
-<div class="card-body ml-2">    
+<div class="card-body ml-2" >    
 
     <form #loginform="ngForm" (ngSubmit)="loginUser()">
     
@@ -31,12 +32,13 @@
         <div class="checkbox">
           <label><input type="checkbox"> Remember me</label>
         </div>
-        <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-info">Login</button>
+        <button [disabled]="loginform.form.invalid" type="submit" class="btn btn-info" >Login</button>
        
       </form>
       <!-- <small class="float-right" (click)="gotoregistration()">New user ? Register here</small> -->
       <!-- <small class="float-right" [routerLink]="['/registration']">New user ? Register here</small> -->
 </div>
+
 <!-- </div> -->
 
 
